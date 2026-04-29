@@ -1,0 +1,2 @@
+// Suspicious outbound connections
+// Goal: Identify network connections initiated by suspicious scripting processes
