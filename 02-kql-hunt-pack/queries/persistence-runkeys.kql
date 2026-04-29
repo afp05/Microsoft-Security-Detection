@@ -1,0 +1,2 @@
+// Run Key persistence
+// Goal: Identify suspicious registry-based persistence via Run / RunOnce keys
