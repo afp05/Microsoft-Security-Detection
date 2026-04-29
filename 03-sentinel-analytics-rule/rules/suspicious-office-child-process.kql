@@ -1,0 +1,30 @@
+// Suspicious Office child process execution
+// Use case: Detect Office applications spawning script interpreters or LOLBins
+
+DeviceProcessEvents
+| where Timestamp > ago(1h)
+| where InitiatingProcessFileName in~ (
+    "winword.exe",
+    "excel.exe",
+    "powerpnt.exe",
+    "outlook.exe"
+)
+| where FileName in~ (
+    "powershell.exe",
+    "cmd.exe",
+    "wscript.exe",
+    "cscript.exe",
+    "mshta.exe",
+    "rundll32.exe",
+    "regsvr32.exe"
+)
+| project
+    Timestamp,
+    DeviceName,
+    AccountName,
+    InitiatingProcessFileName,
+    FileName,
+    ProcessCommandLine,
+    FolderPath,
+    SHA256
+| order by Timestamp desc
