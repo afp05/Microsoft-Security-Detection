@@ -11,8 +11,9 @@ Suspicious PowerShell execution initiated from an Office process.
 Example process chain:
 
 ```text
-winword.exe → powershell.exe
 
+winword.exe → powershell.exe
+```
 Investigation Workflow
 Review alert context
 Identify affected device and user
@@ -30,6 +31,7 @@ DeviceProcessEvents
 DeviceNetworkEvents
 DeviceFileEvents
 DeviceRegistryEvents
+
 
 
 MITRE ATT&CK Mapping
