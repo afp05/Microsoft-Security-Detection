@@ -14,23 +14,26 @@ Example process chain:
 
 winword.exe → powershell.exe
 ```
-Investigation Workflow
-Review alert context
-Identify affected device and user
-Analyze process tree
-Review command line
-Pivot to network connections
-Check file and registry activity
-Determine verdict
-Recommend response actions
-Data Sources
-Microsoft Defender XDR
-Defender for Endpoint
-Advanced Hunting
-DeviceProcessEvents
-DeviceNetworkEvents
-DeviceFileEvents
-DeviceRegistryEvents
+## Investigation Workflow
+
+1. Review alert context
+2. Identify affected device and user
+3. Analyze process tree
+4. Review command line
+5. Pivot to network connections
+6. Check file and registry activity
+7. Determine verdict
+8. Recommend response actions
+9. Data Sources
+10. Microsoft Defender XDR
+11. Defender for Endpoint
+12. Advanced Hunting
+13. DeviceProcessEvents
+14. DeviceNetworkEvents
+15. DeviceFileEvents
+16. DeviceRegistryEvents
+
+
 
 
 
