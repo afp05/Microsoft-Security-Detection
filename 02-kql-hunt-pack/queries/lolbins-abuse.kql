@@ -1,0 +1,2 @@
+// LOLBins abuse hunting
+// Goal: Identify suspicious use of LOLBins such as mshta, rundll32, regsvr32, certutil
