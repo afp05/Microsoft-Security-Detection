@@ -6,7 +6,7 @@ Investigate a suspicious endpoint security alert using Microsoft Defender XDR te
 
 ## Scenario
 
-Suspicious PowerShell execution initiated from an Office process.
+Suspicious PowerShell execution initiated by Microsoft Word.
 
 Example process chain:
 
