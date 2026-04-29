@@ -1,0 +1,26 @@
+// Suspicious PowerShell execution patterns
+// Goal: Identify encoded commands, download cradles and suspicious PowerShell behavior
+
+DeviceProcessEvents
+| where Timestamp > ago(7d)
+| where FileName =~ "powershell.exe"
+| where ProcessCommandLine has_any (
+    "-enc",
+    "-encodedcommand",
+    "EncodedCommand",
+    "IEX",
+    "Invoke-Expression",
+    "DownloadString",
+    "DownloadFile",
+    "FromBase64String",
+    "New-Object Net.WebClient",
+    "System.Net.WebClient"
+)
+| project
+    Timestamp,
+    DeviceName,
+    AccountName,
+    InitiatingProcessFileName,
+    FileName,
+    ProcessCommandLine
+| order by Timestamp desc
