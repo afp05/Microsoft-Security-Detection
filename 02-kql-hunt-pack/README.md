@@ -2,7 +2,7 @@
 
 ## Objective
 
-Create practical KQL hunting queries for Microsoft Defender XDR Advanced Hunting.
+Create practical KQL hunting queries for Microsoft Defender XDR Advanced Hunting focused on suspicious process execution, endpoint telemetry and attacker tradecraft.
 
 ## Hunt Categories
 
@@ -22,9 +22,17 @@ Create practical KQL hunting queries for Microsoft Defender XDR Advanced Hunting
 - DeviceRegistryEvents
 - DeviceLogonEvents
 
-## Status
+## Detection Focus
 
-Queries in development.
+This hunt pack focuses on identifying suspicious Windows process execution patterns commonly associated with:
+
+- PowerShell abuse
+- Office child process anomalies
+- LOLBins
+- script-based execution
+- registry persistence
+- suspicious outbound connections
+- malware staging and execution
 
 ## Lab Validation
 
@@ -36,6 +44,6 @@ Observed behavior included:
 - encoded PowerShell execution
 - Defender follow-up telemetry collection (`senseir.exe`)
 
-### Validation Screenshot
+## Validation Screenshot
 
 ![Advanced Hunting - Suspicious PowerShell](./screenshots/advanced-hunting-encoded-powershell.png)
