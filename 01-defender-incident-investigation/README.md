@@ -2,51 +2,39 @@
 
 ## Objective
 
-Investigate a suspicious endpoint security alert using Microsoft Defender XDR telemetry.
+Investigate suspicious script execution observed during an active office-user workflow using Microsoft Defender XDR telemetry.
 
 ## Scenario
 
-Suspicious PowerShell execution initiated by Microsoft Word.
+Suspicious command-line activity was observed shortly after a user launched LibreOffice Writer on a Windows endpoint onboarded to Microsoft Defender for Endpoint.
 
-Example process chain:
+The objective was to determine whether the observed shell and PowerShell activity was consistent with benign user behavior or required escalation as suspicious execution.
 
-```text
+## Alert Context
 
-winword.exe → powershell.exe
-```
+| Field | Value |
+|---|---|
+| Device | desktop-blre1q2 |
+| User | Agnieszka |
+| Initial Activity | LibreOffice launch |
+| Suspicious Activity | Shell execution from desktop context |
+| Follow-on Activity | PowerShell execution |
+| Data Source | Microsoft Defender XDR Advanced Hunting |
+
 ## Investigation Workflow
 
-1. Review alert context
-2. Identify affected device and user
-3. Analyze process tree
-4. Review command line
-5. Pivot to network connections
-6. Check file and registry activity
+1. Review process execution timeline
+2. Identify baseline user activity
+3. Analyze suspicious shell execution
+4. Review command-line behavior
+5. Correlate follow-on PowerShell activity
+6. Review Defender follow-up telemetry
 7. Determine verdict
 8. Recommend response actions
-9. Data Sources
-10. Microsoft Defender XDR
-11. Defender for Endpoint
-12. Advanced Hunting
-13. DeviceProcessEvents
-14. DeviceNetworkEvents
-15. DeviceFileEvents
-16. DeviceRegistryEvents
 
+## Baseline Activity
 
+Normal user activity showed expected office application execution:
 
-
-
-MITRE ATT&CK Mapping
-| Technique                         | ID        |
-| --------------------------------- | --------- |
-| User Execution                    | T1204     |
-| PowerShell                        | T1059.001 |
-| Command and Scripting Interpreter | T1059     |
-| Ingress Tool Transfer             | T1105     |
-
-
-
-Status
-
-Lab setup in progress.
+```text
+explorer.exe → soffice.exe → soffice.bin
