@@ -25,3 +25,17 @@ Create practical KQL hunting queries for Microsoft Defender XDR Advanced Hunting
 ## Status
 
 Queries in development.
+
+## Lab Validation
+
+The suspicious PowerShell hunt query was validated in Microsoft Defender XDR Advanced Hunting against a Windows VM onboarded to Defender for Endpoint.
+
+Observed behavior included:
+
+- interactive PowerShell execution
+- encoded PowerShell execution
+- Defender follow-up telemetry collection (`senseir.exe`)
+
+### Validation Screenshot
+
+![Advanced Hunting - Suspicious PowerShell](./screenshots/advanced-hunting-encoded-powershell.png)
